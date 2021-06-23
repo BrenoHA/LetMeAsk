@@ -4,10 +4,13 @@ import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 
 import { Button } from 'src/components/Button';
+import { useAuth } from 'src/hooks/useAuth';
 
 import '../styles/auth.scss';
 
 export function NewRoom() {
+  const { user } = useAuth();
+
   return (
     <div id="page-auth">
       <aside>
@@ -19,6 +22,7 @@ export function NewRoom() {
       <main>
         <div className="main-content">
           <img src={logoImg} alt="Logo LetMeAsk" />
+          <h3>{user?.name}</h3>
           <h2>Criar uma nova sala</h2>
           <form>
             <input type="text" placeholder="Nome da sala" />
